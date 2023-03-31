@@ -1,7 +1,8 @@
 name: stra
 description: A new Flutter plugin project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/AkitoYamashita/stra
+repository: https://github.com/AkitoYamashita/stra
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
