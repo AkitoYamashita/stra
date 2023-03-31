@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:stra/stra.dart';
+import 'package:stra/widgets/stra_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,7 +57,13 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const StraText(),
+              Text('Running on: $_platformVersion\n'),
+            ],
+          ),
         ),
       ),
     );
