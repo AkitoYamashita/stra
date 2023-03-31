@@ -1,5 +1,5 @@
 
-<h1 align="center"><a href="https://github.com/AkitoYamashita/stra">stra</a></h1>
+<h1 align="center"><a href="https://github.com/AkitoYamashita/stra">STRA</a></h1>
 <p align="center">effect utils for Flutter on Windows</p>
 
 ## Install
@@ -16,6 +16,4 @@ dependencies:
 
 | Platform | Status |
 | -------- | ------ |
-| Windows  | ¿?     |
-
-
+| Windows  | âœ…     |
