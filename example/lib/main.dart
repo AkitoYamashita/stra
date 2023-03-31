@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    _straPlugin.initialize();
     super.initState();
     initPlatformState();
   }
