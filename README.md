@@ -1,15 +1,21 @@
-# stra
 
-A new Flutter plugin project.
+<h1 align="center"><a href="https://github.com/AkitoYamashita/stra">stra</a></h1>
+<p align="center">effect utils for Flutter on Windows</p>
 
-## Getting Started
+## Install
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Mention in your `pubspec.yaml`.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  ...
+  stra: any
+```
+
+## Platforms
+
+| Platform | Status |
+| -------- | ------ |
+| Windows  | ¿?     |
+
 
