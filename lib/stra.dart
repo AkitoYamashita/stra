@@ -1,3 +1,6 @@
+import 'package:flutter/widgets.dart';
+import 'package:stra/widgets/stra_text.dart';
+
 import 'stra_platform_interface.dart';
 import 'dart:developer' as developer;
 
@@ -6,11 +9,11 @@ class Stra {
     return StraPlatform.instance.getPlatformVersion();
   }
 
-  void _testStra() {
-    developer.log("STRA");
+  void initialize() {
+    testLog();
   }
 
-  void initialize() {
-    _testStra();
+  void testLog() {
+    developer.log("STRA");
   }
 }
