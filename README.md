@@ -17,3 +17,4 @@ dependencies:
 | Platform | Status |
 | -------- | ------ |
 | Windows  | ✅     |
+| Web      | ❓     |
