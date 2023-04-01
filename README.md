@@ -1,5 +1,5 @@
 <h1 align="center"><a href="https://github.com/AkitoYamashita/stra">STRA</a></h1>
-<p align="center" style="text-decoration:line-through;">Utils for Flutter on Windows.</p>
+<p align="center" style="text-decoration:line-through;">This package provides UI widgets and utilities for Flutter games running on Windows.</p>
 
 ## Install
 
