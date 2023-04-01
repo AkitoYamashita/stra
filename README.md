@@ -21,7 +21,14 @@ dependencies:
 ## Feature
 
 - [x] Store
-- [ ] Console Widget
+- [ ] Widget
+  - [x] DefaultMyApp
+  - [x] Txt
+  - [x] Btn
+  - [x] Console
+  - [ ] Spine
+  - [ ] Tab
+  - [ ] Gallery
 - [ ] Persistent store?
 - [ ] Window customize?
 - [ ] Tasktray?
