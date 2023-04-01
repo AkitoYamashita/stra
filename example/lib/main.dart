@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:stra/stra.dart';
+import 'package:stra/stra_api.dart';
 import 'package:stra/widgets/stra_text.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _straPlugin = Stra();
+  final _straPlugin = StraApi();
 
   @override
   void initState() {

@@ -1,13 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:stra/stra.dart';
+import 'package:stra/stra_api.dart';
 import 'package:stra/stra_platform_interface.dart';
 import 'package:stra/stra_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockStraPlatform
-    with MockPlatformInterfaceMixin
-    implements StraPlatform {
-
+class MockStraPlatform with MockPlatformInterfaceMixin implements StraPlatform {
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
@@ -20,7 +17,7 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    Stra straPlugin = Stra();
+    StraApi straPlugin = StraApi();
     MockStraPlatform fakePlatform = MockStraPlatform();
     StraPlatform.instance = fakePlatform;
 

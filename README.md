@@ -1,6 +1,5 @@
-
 <h1 align="center"><a href="https://github.com/AkitoYamashita/stra">STRA</a></h1>
-<p align="center" style="text-decoration:line-through;">Effect utils for Flutter on Windows.</p>
+<p align="center" style="text-decoration:line-through;">Utils for Flutter on Windows.</p>
 
 ## Install
 
@@ -18,3 +17,12 @@ dependencies:
 | -------- | ------ |
 | Windows  | ✅     |
 | Web      | ❓     |
+
+## Feature
+
+[x] Store
+[ ] Console Widget
+[ ] Persistent store?
+[ ] Window customize?
+[ ] Tasktray?
+[ ] Image read/write api?
