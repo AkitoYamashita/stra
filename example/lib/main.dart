@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:stra/stra.dart';
 import 'package:stra/stra_api.dart';
-import 'package:stra/widgets/stra_text.dart';
+import 'package:stra/widgets/txt.dart';
+import 'package:stra/widgets/btn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,8 +61,14 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const StraText(),
+              const Txt(),
               Text('Running on: $_platformVersion\n'),
+              Btn(
+                key: const Key("BTN_TEST"),
+                onPressed: () {
+                  Stra.log("BTN_PRESSED");
+                },
+              ),
             ],
           ),
         ),

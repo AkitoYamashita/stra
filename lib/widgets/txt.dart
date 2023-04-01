@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StraText extends StatelessWidget {
-  const StraText({super.key});
+class Txt extends StatelessWidget {
+  const Txt({super.key});
 
   @override
   Widget build(BuildContext context) {
