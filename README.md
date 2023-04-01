@@ -20,9 +20,9 @@ dependencies:
 
 ## Feature
 
-[x] Store
-[ ] Console Widget
-[ ] Persistent store?
-[ ] Window customize?
-[ ] Tasktray?
-[ ] Image read/write api?
+- [x] Store
+- [ ] Console Widget
+- [ ] Persistent store?
+- [ ] Window customize?
+- [ ] Tasktray?
+- [ ] Image read/write api?
