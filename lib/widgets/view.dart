@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
 class View extends StatelessWidget {
+  final List<Widget> children;
+  final Widget Function(Widget widget) widgetWrapperCallback;
+  final Widget Function(Widget widget) widgetCallback;
+  final Color bgColor;
+
   const View({
     super.key,
     required this.children,
-    double? padding,
+    Widget Function(Widget widget)? widgetWrapperCallback,
+    Widget Function(Widget widget)? widgetCallback,
     Color? bgColor,
-  })  : padding = padding ?? 5.0,
-        bgColor = bgColor ?? const Color.fromARGB(200, 255, 255, 255);
-  final List<Widget> children;
-  final double padding;
-  final Color bgColor;
+  })  : bgColor = bgColor ?? const Color.fromARGB(200, 255, 255, 255),
+        widgetWrapperCallback = widgetWrapperCallback ?? _widgetCallback,
+        widgetCallback = widgetCallback ?? _widgetCallback;
+
+  static Widget _widgetCallback(Widget widget) => widget;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +31,12 @@ class View extends StatelessWidget {
           ),
           color: Colors.white,
         ),
-        child: SingleChildScrollView(
-          child: Column(
+        child: widgetWrapperCallback(
+          Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: children.map((child) {
-              return Padding(
-                padding: EdgeInsets.all(padding),
-                child: child,
-              );
+              return widgetCallback(child);
             }).toList(),
           ),
         ),

@@ -12,12 +12,6 @@ class _ConsoleState extends State<Console> {
   static final _textEditingController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
 
-  @override
-  void dispose() {
-    _textEditingController.dispose();
-    super.dispose();
-  }
-
   void submit() {
     Stra.log("TextField.onSubmitted");
     Stra.log("TextField.value:$_textEditingController.text");
