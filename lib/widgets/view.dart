@@ -5,14 +5,17 @@ class View extends StatelessWidget {
     super.key,
     required this.children,
     double? padding,
-  }) : padding = padding ?? 5.0;
+    Color? bgColor,
+  })  : padding = padding ?? 5.0,
+        bgColor = bgColor ?? const Color.fromARGB(200, 255, 255, 255);
   final List<Widget> children;
   final double padding;
+  final Color bgColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: bgColor,
       body: Container(
         margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.all(5),
