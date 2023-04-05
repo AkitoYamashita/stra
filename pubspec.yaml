@@ -16,6 +16,8 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   ## Yaml
   yaml: ^3.1.0
+  ## Svg
+  flutter_svg: ^2.0.2
 
 dev_dependencies:
   flutter_test:

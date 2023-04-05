@@ -33,3 +33,12 @@ dependencies:
 - [ ] Window customize?
 - [ ] Tasktray?
 - [ ] Image read/write api?
+- [ ] IntegrationTest
+- [ ] Retrofit?
+- [ ] OpenApiGenerator?
+- [ ] Thirdpatry
+  - [x] YmlLoad
+  - [x] SVG
+  - [ ] FontAwesome
+  - [ ] Sqlite
+  - [ ] WebPush
