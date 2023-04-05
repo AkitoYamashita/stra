@@ -1,7 +1,9 @@
 import 'dart:developer' as developer;
+import 'package:stra/thirdparty/yml.dart';
+
 import 'stra_platform_interface.dart';
 
-class StraApi {
+class StraApi with WithYml {
   void initialize() {
     testLog();
   }
