@@ -2,22 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 mixin WithSvg {
-  SvgPicture svg(String assetName,
-      {Key? key,
-      bool matchTextDirection = false,
-      AssetBundle? bundle,
-      String? package,
-      double? width,
-      double? height,
-      BoxFit fit = BoxFit.contain,
-      Alignment alignment = Alignment.center,
-      bool allowDrawingOutsideViewBox = false,
-      Widget Function(BuildContext)? placeholderBuilder,
-      String? semanticsLabel,
-      bool excludeFromSemantics = false,
-      Clip clipBehavior = Clip.hardEdge,
-      SvgTheme theme = const SvgTheme(),
-      ColorFilter? colorFilter}) {
+  SvgPicture svg(
+    String assetName, {
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    Alignment alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    Widget Function(BuildContext)? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    Clip clipBehavior = Clip.hardEdge,
+    SvgTheme theme = const SvgTheme(),
+    ColorFilter? colorFilter,
+  }) {
     return SvgPicture.asset(
       assetName,
       key: key,

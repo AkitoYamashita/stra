@@ -29,6 +29,8 @@ dependencies:
   - [ ] Spine
   - [ ] Tab
   - [ ] Gallery
+- [ ] Router
+- [ ] SceneTransition
 - [ ] Persistent store?
 - [ ] Window customize?
 - [ ] Tasktray?
@@ -39,6 +41,6 @@ dependencies:
 - [ ] Thirdpatry
   - [x] YmlLoad
   - [x] SVG
-  - [ ] FontAwesome
+  - [x] FontAwesome
   - [ ] Sqlite
   - [ ] WebPush

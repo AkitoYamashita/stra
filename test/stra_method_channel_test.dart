@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:stra/stra_method_channel.dart';
 
 void main() {
-  MethodChannelStra platform = MethodChannelStra();
-  const MethodChannel channel = MethodChannel('stra');
+  final platform = MethodChannelStra();
+  const channel = MethodChannel('stra');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

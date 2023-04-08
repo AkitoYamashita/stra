@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stra/stra.dart';
 
 class Btn extends StatelessWidget {
-  final VoidCallback onPressed;
-  final String label;
-  final int created;
-  final double padding;
-
   Btn({
     Key? key,
     String? label,
@@ -26,13 +21,19 @@ class Btn extends StatelessWidget {
     VoidCallback? onPressed,
     double? padding,
     required this.created,
-  })  : label = label ?? "Label",
+  })  : label = label ?? 'Label',
         onPressed = onPressed ??
             (() {
               Stra.log(
-                  "$created->Btn.onPressed@${DateTime.now().toIso8601String()}");
+                '$created->Btn.onPressed@${DateTime.now().toIso8601String()}',
+              );
             }),
         padding = padding ?? 0;
+
+  final VoidCallback onPressed;
+  final String label;
+  final int created;
+  final double padding;
 
   @override
   Widget build(BuildContext context) {

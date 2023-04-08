@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 class View extends StatelessWidget {
-  final List<Widget> children;
-  final Widget Function(Widget widget) widgetWrapperCallback;
-  final Widget Function(Widget widget) widgetCallback;
-  final Color bgColor;
-
   const View({
     super.key,
     required this.children,
@@ -15,6 +10,11 @@ class View extends StatelessWidget {
   })  : bgColor = bgColor ?? const Color.fromARGB(200, 255, 255, 255),
         widgetWrapperCallback = widgetWrapperCallback ?? _widgetCallback,
         widgetCallback = widgetCallback ?? _widgetCallback;
+
+  final List<Widget> children;
+  final Widget Function(Widget widget) widgetWrapperCallback;
+  final Widget Function(Widget widget) widgetCallback;
+  final Color bgColor;
 
   static Widget _widgetCallback(Widget widget) => widget;
 
@@ -35,9 +35,7 @@ class View extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: children.map((child) {
-              return widgetCallback(child);
-            }).toList(),
+            children: children.map(widgetCallback).toList(),
           ),
         ),
       ),
