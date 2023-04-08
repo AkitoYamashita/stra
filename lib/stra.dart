@@ -12,10 +12,10 @@ class Stra {
   Stra._internal(); // Internal
 
   static final Stra _instance = Stra._internal();
+  static final _kv = <String, dynamic>{};
   static bool _debug = false;
   static String debugTagName = '';
   static String consoleLog = 'consoleLog';
-  static final _kv = <String, dynamic>{};
 
   /// Accessor
   static bool get debug => _debug;
@@ -29,6 +29,7 @@ class Stra {
     _kv[key] = value;
   }
 
+  /// Store
   static bool setOrSkip(String key, dynamic value) {
     final skip = _kv.containsKey(key);
     if (_debug) {
@@ -38,17 +39,18 @@ class Stra {
     return !skip; // true -> set success, false -> skipped
   }
 
+  static Iterable<String> getKeys() {
+    final ks = _kv.keys;
+    if (_debug) log('Stra.getKeys -> $ks');
+    return ks;
+  }
+
   static dynamic get(String key) {
     if (_debug) log('Stra.get -> $key : ${_kv[key]}');
     return _kv[key];
   }
 
-  static String getString(String key) {
-    if (_debug) log('Stra.getString -> $key : ${_kv[key]}');
-    return _kv[key] as String;
-  }
-
-  /// Method
+  /// Log
   static void log(
     String message, {
     DateTime? time,
