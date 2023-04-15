@@ -5,9 +5,10 @@ import 'package:stra/utils/io_interface.dart';
 class MockIo with Io implements IoInterface {}
 
 void main() {
-  TestWidgetsFlutterBinding.ensureInitialized(); // for rootBundle
   final mock = MockIo();
-  setUpAll(() async {});
+  setUpAll(() async {
+    TestWidgetsFlutterBinding.ensureInitialized(); // for rootBundle
+  });
   group('file', () {
     test('loadText', () async {
       await mock.loadText('assets/tmp/.gitkeep');

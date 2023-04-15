@@ -2,14 +2,18 @@ import 'package:stra/utils/io_interface.dart';
 import 'package:yaml/yaml.dart';
 
 mixin Yml implements IoInterface {
+  Future<String> getStrByYml(String assetPath, String target) async {
+    return getStringByYmlText(await loadText(assetPath), target);
+  }
+
   Future<YamlMap> loadYml(String path) async {
     final text = await loadText(path);
     final yamlMap = loadYaml(text) as YamlMap;
     return yamlMap;
   }
 
-  String getStringByYamlString(String yamlString, String target) {
-    final yamlMap = loadYaml(yamlString) as YamlMap;
+  String getStringByYmlText(String ymlTxt, String target) {
+    final yamlMap = loadYaml(ymlTxt) as YamlMap;
     var result = '';
     final keys = target.split('.');
     var elm = yamlMap;
