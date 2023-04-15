@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-mixin WithFontAwesome {
+mixin FontAwesome {
   IconData? _faIcon;
   Color? _faColor;
   double? _faSize;

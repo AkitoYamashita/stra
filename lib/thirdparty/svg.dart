@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-mixin WithSvg {
+mixin Svg {
   SvgPicture svg(
     String assetName, {
     Key? key,
