@@ -5,7 +5,7 @@ class Stra {
   /// Contructor
   factory Stra({String? name}) {
     if (!_kv.containsKey('name')) {
-      _kv['name'] = name ?? 'Stra';
+      _kv['name'] = name ?? 'STRA';
     }
     return _instance;
   }
@@ -71,5 +71,10 @@ class Stra {
       error: error,
       stackTrace: stackTrace,
     );
+  }
+
+  /// Utils
+  static String echo(String message) {
+    return 'ECHO:$message';
   }
 }
