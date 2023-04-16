@@ -7,48 +7,54 @@ class Btn extends StatelessWidget {
   Btn({
     Key? key,
     String? label,
+    ButtonStyle? style,
     VoidCallback? onPressed,
-    double? padding,
+    EdgeInsetsGeometry? padding,
   }) : this.init(
           key: key,
           label: label,
+          style: style,
           onPressed: onPressed,
-          padding: padding,
           created: DateTime.now().millisecondsSinceEpoch,
+          padding: padding,
         );
 
   Btn.init({
     super.key,
     String? label,
+    ButtonStyle? style,
     VoidCallback? onPressed,
-    double? padding,
     required this.created,
+    EdgeInsetsGeometry? padding,
   })  : label = label ?? 'Label',
+        style = style ??
+            ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 50,
+                vertical: 15,
+              ),
+              backgroundColor: Colors.grey,
+            ),
         onPressed = onPressed ??
             (() {
               Stra.log(
                 '$created->Btn.onPressed@${DateTime.now().toIso8601String()}',
               );
             }),
-        padding = padding ?? 0;
+        padding = padding ?? EdgeInsets.zero;
 
-  final VoidCallback onPressed;
   final String label;
+  final ButtonStyle? style;
+  final VoidCallback onPressed;
   final int created;
-  final double padding;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(padding),
+      padding: padding,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 50,
-            vertical: 15,
-          ),
-          backgroundColor: Colors.grey,
-        ),
+        style: style,
         onPressed: onPressed,
         child: Text(label),
       ),
