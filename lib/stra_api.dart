@@ -8,19 +8,22 @@ import 'package:stra/utils/io_interface.dart';
 import 'stra_platform_interface.dart';
 
 class StraApi with Yml, Svg, FontAwesome, Io implements IoInterface {
+  /// StraAPIコンストラクタ
   StraApi() {
     developer.log('STRA_CONSTRUCTOR');
   }
 
+  /// 初期化処理
   void initialize() {
     testLog();
   }
 
+  /// ログのテスト
   void testLog() {
     developer.log('STRA');
   }
 
-  /// MethodCall
+  /// プラットフォームバージョン（MethodCall）
   Future<String?> getPlatformVersion() {
     return StraPlatform.instance.getPlatformVersion();
   }

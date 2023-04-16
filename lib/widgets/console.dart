@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stra/stra.dart';
 
 class Console extends StatefulWidget {
+  /// コンソールウィジェット
   const Console({super.key});
 
   @override

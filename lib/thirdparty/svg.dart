@@ -2,8 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 mixin Svg {
+  /// 引数のアセットパスと幅/高さのサイズ指定を元に
+  /// SvgPicture(flutter_svg)形式で返す
+  /// 例:
+  /// svg(
+  ///  'assets/images/svg.svg',
+  ///   width: 128,
+  ///   height: 128,
+  /// )
   SvgPicture svg(
-    String assetName, {
+    String assetPath, {
     Key? key,
     bool matchTextDirection = false,
     AssetBundle? bundle,
@@ -21,7 +29,7 @@ mixin Svg {
     ColorFilter? colorFilter,
   }) {
     return SvgPicture.asset(
-      assetName,
+      assetPath,
       key: key,
       matchTextDirection: matchTextDirection,
       bundle: bundle,

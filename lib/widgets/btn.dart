@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stra/stra.dart';
 
 class Btn extends StatelessWidget {
+  /// 引数のラベル名と押下時のイベント、paddingを元にボタンウィジェットを返す
+  /// ※押下時のイベント指定がない場合は、押下時に現在時刻をログ出力する処理を設定する
   Btn({
     Key? key,
     String? label,

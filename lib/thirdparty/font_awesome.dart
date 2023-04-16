@@ -6,7 +6,6 @@ mixin FontAwesome {
   Color? _faColor;
   double? _faSize;
 
-  /// Accessor
   IconData? get faIcon => _faIcon;
   set faIcon(IconData? newIcon) => _faIcon = newIcon;
   Color? get faColor => _faColor;
@@ -14,6 +13,29 @@ mixin FontAwesome {
   double? get faSize => _faSize;
   set faSize(double? newSize) => _faSize = newSize;
 
+  /// FaIcon(package:font_awesome_flutter)のラッパー
+  /// 引数でアイコン(https://fontawesome.com/icons/)や
+  /// 色、サイズの指定がされておらず
+  /// 既に共通設定されている場合はそれを参照する（呼び出し時に上書き可能）
+  ///
+  /// 例:
+  /// XXX.faIcon = FontAwesomeIcons.solidHeart;
+  /// XXX.faColor = Colors.pink;
+  /// XXX.faSize = 14;
+  ///
+  /// Text.rich(
+  ///   TextSpan(
+  ///     children: [
+  ///       const TextSpan(text: 'サンプル'),
+  ///       WidgetSpan(
+  ///         child: XXX.fa(
+  ///           color: Colors.red,
+  ///           size: 20,
+  ///         ),
+  ///       ),
+  ///     ],
+  ///   ),
+  /// )
   FaIcon fa({
     IconData? icon,
     Key? key,

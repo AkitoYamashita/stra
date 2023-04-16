@@ -11,9 +11,10 @@ void main() {
   });
   group('store', () {
     test('initialize', () {
-      const expected = 'STRA';
+      const expected2 = 'STRA';
+      expect(Stra.get('name').toString(), 'null');
       Stra();
-      expect(Stra.get('name').toString(), expected);
+      expect(Stra.get('name').toString(), expected2);
     });
     test('reinitialize', () {
       const expected = 'STRA2';

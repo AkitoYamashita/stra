@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class View extends StatelessWidget {
+  /// 引数のウィジェットリスト（children）を元にスキャフォールドウィジェットを返す
+  /// スキャフォールドのデフォルト背景色は白（透過弱）
+  /// ウィジェットリストをラップするコンテナの背景色は白、枠付き（灰色）、余白(padding)は5
+  /// _widgetCallback引数を利用することで個別のラッパー処理が可能
   const View({
     super.key,
     required this.children,

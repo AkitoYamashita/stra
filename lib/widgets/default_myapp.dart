@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//// Created by fluuter create command
+/// `flutter create`コマンドで生成されるデフォルトウィジェット
 class DefaultMyApp extends StatelessWidget {
   const DefaultMyApp({super.key});
   @override
