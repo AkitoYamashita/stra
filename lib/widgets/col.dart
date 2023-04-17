@@ -8,11 +8,11 @@ class Col extends StatelessWidget {
     super.key,
     required this.children,
     Widget Function(Widget widget)? widgetCallback,
-    Color? bgColor,
+    Color? backgroundColor,
     MainAxisSize? mainAxisSize,
     MainAxisAlignment? mainAxisAlignment,
     CrossAxisAlignment? crossAxisAlignment,
-  })  : bgColor = bgColor ?? Colors.transparent,
+  })  : backgroundColor = backgroundColor ?? Colors.black12,
         mainAxisSize = mainAxisSize ?? MainAxisSize.max,
         mainAxisAlignment = mainAxisAlignment ?? MainAxisAlignment.start,
         crossAxisAlignment = crossAxisAlignment ?? CrossAxisAlignment.center,
@@ -20,7 +20,7 @@ class Col extends StatelessWidget {
 
   final List<Widget> children;
   final Widget Function(Widget widget) widgetCallback;
-  final Color bgColor;
+  final Color backgroundColor;
   final MainAxisSize mainAxisSize;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
@@ -41,7 +41,7 @@ class Col extends StatelessWidget {
         border: Border.all(
           color: Colors.black12,
         ),
-        color: bgColor,
+        color: backgroundColor,
       ),
       child: Column(
         mainAxisSize: mainAxisSize,

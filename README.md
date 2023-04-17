@@ -29,6 +29,7 @@ dependencies:
   - [ ] Spine
   - [ ] Tab
   - [ ] Gallery
+  - [ ] CinemaScope?
 - [ ] Router
 - [ ] SceneTransition
 - [ ] Persistent store?
