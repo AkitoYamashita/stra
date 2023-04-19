@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer' as developer;
+import 'package:flutter/material.dart';
 
 class Stra {
   /// Straコンストラクタ（シングルトン）
@@ -92,5 +93,20 @@ class Stra {
   /// 引数の文字列に`ECHO:`を先頭につけて返す
   static String echo(String message) {
     return 'ECHO:$message';
+  }
+
+  /// 戻るボタンを生成し返す
+  static ElevatedButton backBtn(BuildContext context, String? label) {
+    return ElevatedButton(
+      child: Text(label ?? 'back'),
+      onPressed: () {
+        if (Navigator.canPop(context)) Navigator.pop(context);
+      },
+    );
+  }
+
+  /// ウィジェットを中央寄せのScaffoldでラップして返す
+  static Scaffold scaffold(Widget body) {
+    return Scaffold(body: Center(child: body));
   }
 }
