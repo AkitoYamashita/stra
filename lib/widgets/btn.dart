@@ -2,38 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:stra/stra.dart';
 
 class Btn extends StatelessWidget {
-  /// 引数のラベル名と押下時のイベント、paddingを元にボタンウィジェットを返す
+  /// 引数のラベル名(またはchildウィジェット)と押下時のイベント、スタイル指定を元にボタンウィジェットを返す
   /// ※押下時のイベント指定がない場合は、押下時に現在時刻をログ出力する処理を設定する
   Btn({
     Key? key,
-    String? label,
-    ButtonStyle? style,
-    VoidCallback? onPressed,
+    EdgeInsetsGeometry? wrapperPadding,
     EdgeInsetsGeometry? padding,
+    Size? minimumSize,
+    ButtonStyle? buttonStyle,
+    VoidCallback? onPressed,
+    String? label,
+    Widget? child,
   }) : this.init(
           key: key,
-          label: label,
-          style: style,
+          wrapperPadding: wrapperPadding,
+          padding: padding,
+          minimumSize: minimumSize,
+          buttonStyle: buttonStyle,
           onPressed: onPressed,
           created: DateTime.now().millisecondsSinceEpoch,
-          padding: padding,
+          label: label,
+          child: child,
         );
 
   Btn.init({
     super.key,
-    String? label,
-    ButtonStyle? style,
+    EdgeInsetsGeometry? wrapperPadding,
+    EdgeInsetsGeometry? padding,
+    this.minimumSize,
+    this.buttonStyle,
     VoidCallback? onPressed,
     required this.created,
-    EdgeInsetsGeometry? padding,
-  })  : label = label ?? 'Label',
-        style = style ??
-            ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 50,
-                vertical: 15,
-              ),
-              backgroundColor: Colors.grey,
+    String? label,
+    this.child,
+  })  : wrapperPadding = wrapperPadding ?? EdgeInsets.zero,
+        padding = padding ??
+            const EdgeInsets.symmetric(
+              horizontal: 50,
+              vertical: 15,
             ),
         onPressed = onPressed ??
             (() {
@@ -41,22 +47,34 @@ class Btn extends StatelessWidget {
                 '$created->Btn.onPressed@${DateTime.now().toIso8601String()}',
               );
             }),
-        padding = padding ?? EdgeInsets.zero;
+        label = label ?? 'Label';
 
-  final String label;
-  final ButtonStyle? style;
+  final EdgeInsetsGeometry wrapperPadding;
+  final ButtonStyle? buttonStyle;
+  final EdgeInsetsGeometry padding;
   final VoidCallback onPressed;
   final int created;
-  final EdgeInsetsGeometry padding;
+  final String label;
+  final Widget? child;
+  final Size? minimumSize;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding,
+      padding: wrapperPadding,
       child: ElevatedButton(
-        style: style,
+        style: buttonStyle ??
+            ElevatedButton.styleFrom(
+              padding: padding,
+              minimumSize: minimumSize,
+              side: const BorderSide(
+                color: Colors.grey,
+              ),
+              shadowColor: Colors.transparent,
+              backgroundColor: const Color.fromARGB(255, 224, 224, 224),
+            ),
         onPressed: onPressed,
-        child: Text(label),
+        child: child ?? Text(label),
       ),
     );
   }

@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Txt(),
+              const Txt('TXT'),
               Text('Running on: $_platformVersion\n'),
               Btn(
                 key: const Key("BTN_TEST"),

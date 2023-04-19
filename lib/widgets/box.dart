@@ -3,28 +3,35 @@ import 'package:flutter/material.dart';
 /// 引数のウィジェットをContainer+@でラップして返す
 /// margin,paddingでそれぞれ余白を指定可能（default:0）
 class Box extends StatelessWidget {
-  const Box(
-    this.widget, {
+  const Box({
     super.key,
-    double? margin,
-    double? padding,
-  })  : margin = margin ?? 0,
-        padding = padding ?? 0;
+    required this.child,
+    this.margin,
+    this.padding,
+    this.borderColor,
+    this.backgroundColor,
+  });
 
-  final Widget widget;
-  final double margin;
-  final double padding;
+  final Widget child;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
+  final Color? borderColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
+    BoxBorder? boxBorder;
+    if (borderColor != null) {
+      boxBorder = Border.all(color: borderColor!);
+    }
     return Container(
-      margin: EdgeInsets.all(margin),
-      padding: EdgeInsets.all(padding),
+      margin: margin,
+      padding: padding,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        color: Colors.white,
+        border: boxBorder,
+        color: backgroundColor,
       ),
-      child: widget,
+      child: child,
     );
   }
 }

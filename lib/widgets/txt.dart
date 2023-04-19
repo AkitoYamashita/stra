@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 
 class Txt extends StatelessWidget {
-  /// 引数のラベル名を元にテキストウィジェットを返す
-  /// ※ラベル名の指定がない場合は、デフォルトの文字列を設定
-  const Txt({super.key, String? label}) : label = label ?? 'Txt';
+  /// 引数のラベル文字列を元にテキストウィジェットを返す
+  const Txt(
+    this.label, {
+    super.key,
+    this.color,
+    this.fontSize,
+  });
+
   final String label;
+  final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
-    return Text(label);
+    final style = TextStyle(
+      color: color,
+      fontSize: fontSize,
+    );
+    return Text(
+      label,
+      style: style,
+    );
   }
 }
