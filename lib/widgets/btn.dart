@@ -68,10 +68,10 @@ class Btn extends StatelessWidget {
               padding: padding,
               minimumSize: minimumSize,
               side: const BorderSide(
-                color: Colors.grey,
+                color: Colors.black26,
               ),
               shadowColor: Colors.transparent,
-              backgroundColor: const Color.fromARGB(255, 224, 224, 224),
+              backgroundColor: const Color.fromARGB(255, 180, 180, 180),
             ),
         onPressed: onPressed,
         child: child ?? Text(label),

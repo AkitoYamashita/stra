@@ -18,7 +18,8 @@ class View extends StatelessWidget {
     MainAxisAlignment? mainAxisAlignment,
     CrossAxisAlignment? crossAxisAlignment,
   })  : appBarDisable = appBarDisable ?? false,
-        backgroundColor = backgroundColor ?? Colors.white,
+        backgroundColor =
+            backgroundColor ?? const Color.fromARGB(255, 180, 180, 180),
         widgetWrapperCallback = widgetWrapperCallback ?? _widgetWrapperCallback,
         widgetCallback = widgetCallback ?? _widgetCallback,
         mainAxisSize = mainAxisSize ?? MainAxisSize.max,
@@ -40,7 +41,7 @@ class View extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.grey,
+          color: Colors.red,
         ),
         color: Colors.transparent,
       ),

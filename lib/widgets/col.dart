@@ -13,7 +13,7 @@ class Col extends StatelessWidget {
     MainAxisAlignment? mainAxisAlignment,
     CrossAxisAlignment? crossAxisAlignment,
   })  : backgroundColor =
-            backgroundColor ?? const Color.fromARGB(255, 224, 224, 224),
+            backgroundColor ?? const Color.fromARGB(255, 180, 180, 180),
         mainAxisSize = mainAxisSize ?? MainAxisSize.max,
         mainAxisAlignment = mainAxisAlignment ?? MainAxisAlignment.start,
         crossAxisAlignment = crossAxisAlignment ?? CrossAxisAlignment.center,
@@ -40,7 +40,7 @@ class Col extends StatelessWidget {
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.grey,
+          color: Colors.black26,
         ),
         color: backgroundColor,
       ),

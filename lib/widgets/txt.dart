@@ -16,7 +16,7 @@ class Txt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = TextStyle(
-      color: color,
+      color: color == null ? Colors.black : color!,
       fontSize: fontSize,
     );
     return Text(
