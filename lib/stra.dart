@@ -109,4 +109,70 @@ class Stra {
   static Scaffold scaffold(Widget body) {
     return Scaffold(body: Center(child: body));
   }
+
+  /// Navigator向けの画面遷移エフェクト（フェードイン）
+  static PageRouteBuilder<T> fadein<T>(
+    Widget Function(BuildContext, Animation<double>, Animation<double>)
+        pageBuilder,
+  ) {
+    return PageRouteBuilder(
+      pageBuilder: pageBuilder,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = 0.0;
+        const end = 1.0;
+        final tween = Tween(begin: begin, end: end)
+            .chain(CurveTween(curve: Curves.easeInOut));
+        final doubleAnimation = animation.drive(tween);
+        return FadeTransition(
+          opacity: doubleAnimation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  /// Navigator向けの画面遷移エフェクト（ブラックアウト）
+  static PageRouteBuilder<T> blackout<T>(
+    Widget Function(BuildContext, Animation<double>, Animation<double>)
+        pageBuilder,
+  ) {
+    return PageRouteBuilder(
+      pageBuilder: pageBuilder,
+      transitionDuration: const Duration(seconds: 1),
+      reverseTransitionDuration: const Duration(seconds: 1),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final color = ColorTween(
+          begin: Colors.transparent,
+          end: Colors.black,
+        ).animate(
+          CurvedAnimation(
+            parent: animation,
+            curve: const Interval(0, 0.1, curve: Curves.easeInOut),
+          ),
+        );
+        final opacity = Tween<double>(
+          begin: 0,
+          end: 1,
+        ).animate(
+          CurvedAnimation(
+            parent: animation,
+            curve: const Interval(0.1, 0.2, curve: Curves.easeInOut),
+          ),
+        );
+        return AnimatedBuilder(
+          animation: animation,
+          builder: (context, child) {
+            return Container(
+              color: color.value,
+              child: Opacity(
+                opacity: opacity.value,
+                child: child,
+              ),
+            );
+          },
+          child: child,
+        );
+      },
+    );
+  }
 }
