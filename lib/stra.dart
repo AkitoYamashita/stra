@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:developer' as developer;
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Stra {
@@ -93,6 +95,58 @@ class Stra {
   /// 引数の文字列に`ECHO:`を先頭につけて返す
   static String echo(String message) {
     return 'ECHO:$message';
+  }
+
+  /// プラットフォーム名を大文字で返す
+  static String platformName() {
+    /// kIsWeb:true環境の場合、Platformを使うと処理が止まる
+    if (kIsWeb) {
+      return 'WEB';
+    } else {
+      if (Platform.isAndroid) {
+        return 'ANDROID';
+      } else if (Platform.isIOS) {
+        return 'IOS';
+      } else if (Platform.isWindows) {
+        return 'WINDOWS';
+      } else if (Platform.isMacOS) {
+        return 'MACOS';
+      } else if (Platform.isLinux) {
+        return 'LINUX';
+      } else {
+        return Platform.operatingSystem.toUpperCase();
+      }
+    }
+  }
+
+  /// プラットフォームがWebならtrueを返す
+  static bool isWeb() {
+    return kIsWeb;
+  }
+
+  /// プラットフォームがAndroidならtrueを返す
+  static bool isAndroid() {
+    return !kIsWeb && Platform.isAndroid;
+  }
+
+  /// プラットフォームがIOSならtrueを返す
+  static bool isIOS() {
+    return !kIsWeb && Platform.isIOS;
+  }
+
+  /// プラットフォームがWindowsならtrueを返す
+  static bool isWindows() {
+    return !kIsWeb && Platform.isWindows;
+  }
+
+  /// プラットフォームがMacOSならtrueを返す
+  static bool isMacOS() {
+    return !kIsWeb && Platform.isMacOS;
+  }
+
+  /// プラットフォームがLinuxならtrueを返す
+  static bool isLinux() {
+    return !kIsWeb && Platform.isLinux;
   }
 
   /// 戻るボタンを生成し返す

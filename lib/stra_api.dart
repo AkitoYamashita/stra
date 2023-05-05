@@ -10,12 +10,12 @@ import 'stra_platform_interface.dart';
 class StraApi with Yml, Svg, FontAwesome, Io implements IoInterface {
   /// StraAPIコンストラクタ
   StraApi() {
-    developer.log('STRA_CONSTRUCTOR');
+    developer.log('STRA_API_CONSTRUCTOR');
   }
 
   /// 初期化処理
   void initialize() {
-    testLog();
+    developer.log('STRA_API_INITIALIZE');
   }
 
   /// ログのテスト
