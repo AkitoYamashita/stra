@@ -1,20 +1,27 @@
 @echo off
-@REM echo %%0 = %0
+setlocal enabledelayedexpansion
+cd /d %~dp0
+
+echo %%0 = %0
 echo %%1 = %1
 
-cd %~dp0
-
-IF "%1"=="get" (
-    flutter pub get
-) ELSE IF "%1"=="run" (
-    cd example && flutter run --debug -d windows && cd %~dp0
-) ELSE IF "%1"=="test" (
+if "%1" equ "get" (
+    flutter pub get && cd %~dp0
+)
+if "%1" equ "clean" (
+    flutter clean && flutter pub get && cd %~dp0
+)
+if "%1" equ "test" (
     flutter test
-) ELSE IF "%1"=="build" (
-    flutter pub run build_runner build
-) ELSE IF "%1"=="publish" (
+)
+if "%1" equ "build" (
+    flutter build appbundle --release && cd %~dp0
+)
+if "%1" equ "publish" (
     @REM dart pub publish --dry-run
     dart pub publish
-) ELSE (
-    flutter --version
 )
+if "%1" equ "version" (
+    flutter --version && cd %~dp0
+)
+echo COMPLETE
