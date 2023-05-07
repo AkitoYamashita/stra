@@ -56,6 +56,9 @@ class View extends StatelessWidget {
     return Center(
       child: Col(
         backgroundColor: Colors.transparent,
+        mainAxisSize: MainAxisSize.min, //max
+        mainAxisAlignment: MainAxisAlignment.start, //start
+        crossAxisAlignment: CrossAxisAlignment.start, //center
         children: listWidget,
       ),
     );
