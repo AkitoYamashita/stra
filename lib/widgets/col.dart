@@ -12,8 +12,12 @@ class Col extends StatelessWidget {
     MainAxisSize? mainAxisSize,
     MainAxisAlignment? mainAxisAlignment,
     CrossAxisAlignment? crossAxisAlignment,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
   })  : backgroundColor =
             backgroundColor ?? const Color.fromARGB(255, 180, 180, 180),
+        padding = padding ?? const EdgeInsets.all(2),
+        margin = margin ?? const EdgeInsets.all(2),
         mainAxisSize = mainAxisSize ?? MainAxisSize.max,
         mainAxisAlignment = mainAxisAlignment ?? MainAxisAlignment.start,
         crossAxisAlignment = crossAxisAlignment ?? CrossAxisAlignment.center,
@@ -25,6 +29,8 @@ class Col extends StatelessWidget {
   final MainAxisSize mainAxisSize;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
 
   static Widget _widgetCallback(Widget widget) {
     return Padding(
@@ -36,8 +42,8 @@ class Col extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(2),
-      padding: const EdgeInsets.all(2),
+      margin: margin,
+      padding: padding,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black26,
