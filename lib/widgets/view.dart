@@ -4,7 +4,7 @@ import 'package:stra/widgets/col.dart';
 class View extends StatelessWidget {
   /// 引数のウィジェットリスト（children）を元にスキャフォールドウィジェットを返す
   /// safeAreaCallback引数を利用することでオーバーフロー用のラッパー処理が可能
-  /// widgetWrapperCallback引数を利用することでウィジェットリストのラッパー処理が可能
+  /// wrapperCallback引数を利用することでウィジェットリストのラッパー処理が可能
   /// widgetCallback引数を利用することで個別のラッパー処理が可能
   /// ※Desktop/Webアプリケーションで水平方向の(マウスドラッグによる)スクロールを有効にするため、
   /// MaterialScrollBehaviorのオーバーライドし、MaterialAppのscrollBehaviorへ設定する必要有り
@@ -12,7 +12,7 @@ class View extends StatelessWidget {
     super.key,
     required this.children,
     Widget Function(Widget widget)? safeAreaCallback,
-    Widget Function(List<Widget> listWidget)? widgetWrapperCallback,
+    Widget Function(List<Widget> listWidget)? wrapperCallback,
     Widget Function(Widget widget)? widgetCallback,
     bool? appBarDisable,
     Color? backgroundColor,
@@ -20,12 +20,12 @@ class View extends StatelessWidget {
         backgroundColor =
             backgroundColor ?? const Color.fromARGB(255, 180, 180, 180),
         safeAreaCallback = safeAreaCallback ?? _safeAreaCallback,
-        widgetWrapperCallback = widgetWrapperCallback ?? _widgetWrapperCallback,
+        wrapperCallback = wrapperCallback ?? _wrapperCallback,
         widgetCallback = widgetCallback ?? _widgetCallback;
 
   final List<Widget> children;
   final Widget Function(Widget widget) safeAreaCallback;
-  final Widget Function(List<Widget> listWidget) widgetWrapperCallback;
+  final Widget Function(List<Widget> listWidget) wrapperCallback;
   final Widget Function(Widget widget) widgetCallback;
   final bool appBarDisable;
   final Color backgroundColor;
@@ -52,7 +52,7 @@ class View extends StatelessWidget {
     );
   }
 
-  static Widget _widgetWrapperCallback(List<Widget> listWidget) {
+  static Widget _wrapperCallback(List<Widget> listWidget) {
     return Center(
       child: Col(
         backgroundColor: Colors.transparent,
@@ -72,7 +72,7 @@ class View extends StatelessWidget {
       appBar: appBarDisable ? null : AppBar(title: const Text('View')),
       backgroundColor: backgroundColor,
       body: safeAreaCallback(
-        widgetWrapperCallback(
+        wrapperCallback(
           children.map(widgetCallback).toList(),
         ),
       ),
