@@ -1,52 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:stra/widgets/col.dart';
 
 class View extends StatelessWidget {
   /// 引数のウィジェットリスト（children）を元にスキャフォールドウィジェットを返す
-  /// スキャフォールドのデフォルト背景色は白（透過弱）
-  /// ウィジェットリストをラップするコンテナの背景色は白、枠付き（灰色）、余白(padding)は5
+  /// safeAreaCallback引数を利用することでオーバーフロー用のラッパー処理が可能
+  /// widgetWrapperCallback引数を利用することでウィジェットリストのラッパー処理が可能
   /// widgetCallback引数を利用することで個別のラッパー処理が可能
-  /// widgetWrapperCallback引数を利用することで全体ラッパー処理が可能
-  /// （デフォルトはSizedBox.expandで縦横を最大まで伸ばす）
+  /// ※Desktop/Webアプリケーションで水平方向の(マウスドラッグによる)スクロールを有効にするため、
+  /// MaterialScrollBehaviorのオーバーライドし、MaterialAppのscrollBehaviorへ設定する必要有り
   const View({
     super.key,
     required this.children,
-    Widget Function(Widget widget)? widgetWrapperCallback,
+    Widget Function(Widget widget)? safeAreaCallback,
+    Widget Function(List<Widget> listWidget)? widgetWrapperCallback,
     Widget Function(Widget widget)? widgetCallback,
     bool? appBarDisable,
     Color? backgroundColor,
-    MainAxisSize? mainAxisSize,
-    MainAxisAlignment? mainAxisAlignment,
-    CrossAxisAlignment? crossAxisAlignment,
   })  : appBarDisable = appBarDisable ?? false,
         backgroundColor =
             backgroundColor ?? const Color.fromARGB(255, 180, 180, 180),
+        safeAreaCallback = safeAreaCallback ?? _safeAreaCallback,
         widgetWrapperCallback = widgetWrapperCallback ?? _widgetWrapperCallback,
-        widgetCallback = widgetCallback ?? _widgetCallback,
-        mainAxisSize = mainAxisSize ?? MainAxisSize.max,
-        mainAxisAlignment = mainAxisAlignment ?? MainAxisAlignment.start,
-        crossAxisAlignment = crossAxisAlignment ?? CrossAxisAlignment.start;
+        widgetCallback = widgetCallback ?? _widgetCallback;
 
   final List<Widget> children;
-  final Widget Function(Widget widget) widgetWrapperCallback;
+  final Widget Function(Widget widget) safeAreaCallback;
+  final Widget Function(List<Widget> listWidget) widgetWrapperCallback;
   final Widget Function(Widget widget) widgetCallback;
   final bool appBarDisable;
   final Color backgroundColor;
-  final MainAxisSize mainAxisSize;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
 
-  static Widget _widgetWrapperCallback(Widget widget) {
-    return Container(
-      margin: const EdgeInsets.all(5),
-      padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.red,
-        ),
-        color: Colors.transparent,
-      ),
-      child: SizedBox.expand(
-        child: widget,
+  static Widget _safeAreaCallback(Widget widget) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return ListView(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                  minWidth: constraints.maxWidth,
+                ),
+                child: widget,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  static Widget _widgetWrapperCallback(List<Widget> listWidget) {
+    return Center(
+      child: Col(
+        backgroundColor: Colors.transparent,
+        children: listWidget,
       ),
     );
   }
@@ -58,12 +68,9 @@ class View extends StatelessWidget {
     return Scaffold(
       appBar: appBarDisable ? null : AppBar(title: const Text('View')),
       backgroundColor: backgroundColor,
-      body: widgetWrapperCallback(
-        Column(
-          mainAxisSize: mainAxisSize,
-          mainAxisAlignment: mainAxisAlignment,
-          crossAxisAlignment: crossAxisAlignment,
-          children: children.map(widgetCallback).toList(),
+      body: safeAreaCallback(
+        widgetWrapperCallback(
+          children.map(widgetCallback).toList(),
         ),
       ),
     );

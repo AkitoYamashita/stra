@@ -9,6 +9,7 @@ class Box extends StatelessWidget {
     this.margin,
     this.padding,
     this.borderColor,
+    this.borderWidth,
     this.backgroundColor,
   });
 
@@ -16,13 +17,17 @@ class Box extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final Color? borderColor;
+  final double? borderWidth;
   final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     BoxBorder? boxBorder;
     if (borderColor != null) {
-      boxBorder = Border.all(color: borderColor!);
+      boxBorder = Border.all(
+        color: borderColor!,
+        width: borderWidth ?? 1.0,
+      );
     }
     return Container(
       margin: margin,
