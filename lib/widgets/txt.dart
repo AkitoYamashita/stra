@@ -7,16 +7,19 @@ class Txt extends StatelessWidget {
     super.key,
     this.color,
     this.fontSize,
+    this.fontWeight,
   });
 
   final String label;
   final Color? color;
   final double? fontSize;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
     final style = TextStyle(
       color: color == null ? Colors.black : color!,
+      fontWeight: fontWeight == null ? FontWeight.normal : fontWeight!,
       fontSize: fontSize,
     );
     return Text(

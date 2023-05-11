@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stra/stra.dart';
+import 'package:stra/widgets/txt.dart';
 
 class Btn extends StatelessWidget {
   /// 引数のラベル名(またはchildウィジェット)と押下時のイベント、スタイル指定を元にボタンウィジェットを返す
@@ -74,7 +75,7 @@ class Btn extends StatelessWidget {
               backgroundColor: const Color.fromARGB(255, 180, 180, 180),
             ),
         onPressed: onPressed,
-        child: child ?? Text(label),
+        child: child ?? Txt(label),
       ),
     );
   }
