@@ -15,11 +15,11 @@ class _ConsoleState extends State<Console> {
 
   void submit() {
     Stra.log('TextField.onSubmitted');
-    Stra.log('TextField.value:$_textEditingController.text');
+    Stra.log('TextField.value:${_textEditingController.text}');
     if (_textEditingController.text.isNotEmpty) {
       setState(() {
         _textEditingController.clear();
-        Stra.consoleLog += '\n$_textEditingController.text';
+        Stra.consoleLog += '\n${_textEditingController.text}';
       });
     }
     _focusNode.requestFocus();
