@@ -45,7 +45,7 @@ class Btn extends StatelessWidget {
         onPressed = onPressed ??
             (() {
               Stra.log(
-                '$created->Btn.onPressed@${DateTime.now().toIso8601String()}',
+                '$created->Btn.onPressed@${Stra.now()}',
               );
             }),
         label = label ?? 'Label';

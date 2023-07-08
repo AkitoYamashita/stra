@@ -97,6 +97,16 @@ class Stra {
     return 'ECHO:$message';
   }
 
+  ///  現在時刻をUnixEpoch：1970-01-01T00:00:00Z (UTC)から経過したミリ秒で返す
+  static int epoch() {
+    return DateTime.now().millisecondsSinceEpoch;
+  }
+
+  /// 現在時刻をISO8601形式の文字列で返す
+  static String now() {
+    return DateTime.now().toIso8601String();
+  }
+
   /// プラットフォーム名を大文字で返す
   static String platformName() {
     /// kIsWeb:true環境の場合、Platformを使うと処理が止まる
