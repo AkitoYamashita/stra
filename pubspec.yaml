@@ -1,6 +1,6 @@
 name: stra
 description: This package provides UI widgets and utilities for Flutter games running on Windows and Android.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/AkitoYamashita/stra
 repository: https://github.com/AkitoYamashita/stra
 

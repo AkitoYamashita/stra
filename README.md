@@ -33,19 +33,19 @@ dependencies:
   - [ ] Spine
   - [ ] Tab
   - [ ] Gallery
-  - [ ] CinemaScope?
+  - [ ] CinemaScope
 - [ ] Router
 - [ ] SceneTransition
-- [ ] Persistent store?
-- [ ] Window customize?
-- [ ] Tasktray?
-- [ ] Image read/write api?
+- [ ] PersistentStore
+- [ ] WindowCustomize
+- [ ] Tasktray
+- [ ] ImageRead/Write
 - [ ] IntegrationTest
-- [ ] Retrofit?
-- [ ] OpenApiGenerator?
+- [ ] Retrofit
+- [ ] OpenApiGenerator
 - [ ] Thirdpatry
   - [x] YmlLoad
   - [x] SVG
   - [x] FontAwesome
   - [ ] Sqlite
-  - [-] WebPush
+  - [ ] WebPush

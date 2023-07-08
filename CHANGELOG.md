@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 0.0.4
+
+- Update for cleanup
+
 ## 0.0.3
 
 - Add utils widget
