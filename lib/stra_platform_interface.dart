@@ -1,6 +1,6 @@
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import "package:plugin_platform_interface/plugin_platform_interface.dart";
 
-import 'stra_method_channel.dart';
+import "stra_method_channel.dart";
 
 abstract class StraPlatform extends PlatformInterface {
   /// Constructs a StraPlatform.
@@ -24,6 +24,6 @@ abstract class StraPlatform extends PlatformInterface {
   }
 
   Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+    throw UnimplementedError("platformVersion() has not been implemented.");
   }
 }

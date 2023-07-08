@@ -1,16 +1,16 @@
-import 'package:flutter/services.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:stra/stra_method_channel.dart';
+import "package:flutter/services.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:stra/stra_method_channel.dart";
 
 void main() {
   final platform = MethodChannelStra();
-  const channel = MethodChannel('stra');
+  const channel = MethodChannel("stra");
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      return "42";
     });
   });
 
@@ -18,7 +18,7 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
+  test("getPlatformVersion", () async {
+    expect(await platform.getPlatformVersion(), "42");
   });
 }

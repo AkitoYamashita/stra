@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class Col extends StatelessWidget {
   /// 引数のウィジェットリスト（children）を元にコンテナウィジェットを返す

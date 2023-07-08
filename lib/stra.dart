@@ -1,14 +1,14 @@
-import 'dart:async';
-import 'dart:developer' as developer;
-import 'dart:io';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import "dart:async";
+import "dart:developer" as developer;
+import "dart:io";
+import "package:flutter/foundation.dart";
+import "package:flutter/material.dart";
 
 class Stra {
   /// Straコンストラクタ（シングルトン）
   factory Stra({String? name}) {
-    if (!_kv.containsKey('name')) {
-      _kv['name'] = name ?? 'STRA';
+    if (!_kv.containsKey("name")) {
+      _kv["name"] = name ?? "STRA";
     }
     return _instance;
   }
@@ -26,23 +26,23 @@ class Stra {
   static bool _debug = false;
 
   /// デバッグタグ名(default:空文字)
-  static String debugTagName = '';
+  static String debugTagName = "";
 
   /// コンソールログ
-  static String consoleLog = 'consoleLog';
+  static String consoleLog = "consoleLog";
 
   /// デバッグフラグを真偽値で返す
   static bool get debug => _debug;
 
   /// デバッグフラグを設定する
   static set debug(bool newDebug) {
-    log(newDebug ? 'STRA_DEBUG_ENABLED' : 'STRA_DEBUG_DISABLED');
+    log(newDebug ? "STRA_DEBUG_ENABLED" : "STRA_DEBUG_DISABLED");
     _debug = newDebug;
   }
 
   /// ストアにキーと値を入れる（既に同名のキーがあっても上書きする）
   static void set(String key, dynamic value) {
-    if (_debug) log('Stra.set -> $key : $value');
+    if (_debug) log("Stra.set -> $key : $value");
     _kv[key] = value;
   }
 
@@ -59,13 +59,13 @@ class Stra {
   /// ストアのキー一覧を返す
   static Iterable<String> getKeys() {
     final ks = _kv.keys;
-    if (_debug) log('Stra.getKeys -> $ks');
+    if (_debug) log("Stra.getKeys -> $ks");
     return ks;
   }
 
   /// ストアからキー名を元に値を返す
   static dynamic get(String key) {
-    if (_debug) log('Stra.get -> $key : ${_kv[key]}');
+    if (_debug) log("Stra.get -> $key : ${_kv[key]}");
     return _kv[key];
   }
 
@@ -75,7 +75,7 @@ class Stra {
     DateTime? time,
     int? sequenceNumber,
     int level = 0,
-    String name = '',
+    String name = "",
     Zone? zone,
     Object? error,
     StackTrace? stackTrace,
@@ -94,7 +94,7 @@ class Stra {
 
   /// 引数の文字列に`ECHO:`を先頭につけて返す
   static String echo(String message) {
-    return 'ECHO:$message';
+    return "ECHO:$message";
   }
 
   ///  現在時刻をUnixEpoch：1970-01-01T00:00:00Z (UTC)から経過したミリ秒で返す
@@ -111,18 +111,18 @@ class Stra {
   static String platformName() {
     /// kIsWeb:true環境の場合、Platformを使うと処理が止まる
     if (kIsWeb) {
-      return 'WEB';
+      return "WEB";
     } else {
       if (Platform.isAndroid) {
-        return 'ANDROID';
+        return "ANDROID";
       } else if (Platform.isIOS) {
-        return 'IOS';
+        return "IOS";
       } else if (Platform.isWindows) {
-        return 'WINDOWS';
+        return "WINDOWS";
       } else if (Platform.isMacOS) {
-        return 'MACOS';
+        return "MACOS";
       } else if (Platform.isLinux) {
-        return 'LINUX';
+        return "LINUX";
       } else {
         return Platform.operatingSystem.toUpperCase();
       }
@@ -162,7 +162,7 @@ class Stra {
   /// 戻るボタンを生成し返す
   static ElevatedButton backBtn(BuildContext context, String? label) {
     return ElevatedButton(
-      child: Text(label ?? 'back'),
+      child: Text(label ?? "back"),
       onPressed: () {
         if (Navigator.canPop(context)) Navigator.pop(context);
       },

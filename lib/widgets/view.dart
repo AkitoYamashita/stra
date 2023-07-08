@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:stra/widgets/col.dart';
+import "package:flutter/material.dart";
+import "package:stra/widgets/col.dart";
 
 class View extends StatelessWidget {
   /// 引数のウィジェットリスト（children）を元にスキャフォールドウィジェットを返す
@@ -69,7 +69,7 @@ class View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDisable ? null : AppBar(title: const Text('View')),
+      appBar: appBarDisable ? null : AppBar(title: const Text("View")),
       backgroundColor: backgroundColor,
       body: safeAreaCallback(
         wrapperCallback(

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:stra/stra.dart';
+import "package:flutter/material.dart";
+import "package:stra/stra.dart";
 
 class Console extends StatefulWidget {
   /// コンソールウィジェット
@@ -14,12 +14,12 @@ class _ConsoleState extends State<Console> {
   final FocusNode _focusNode = FocusNode();
 
   void submit() {
-    Stra.log('TextField.onSubmitted');
-    Stra.log('TextField.value:${_textEditingController.text}');
+    Stra.log("TextField.onSubmitted");
+    Stra.log("TextField.value:${_textEditingController.text}");
     if (_textEditingController.text.isNotEmpty) {
       setState(() {
         _textEditingController.clear();
-        Stra.consoleLog += '\n${_textEditingController.text}';
+        Stra.consoleLog += "\n${_textEditingController.text}";
       });
     }
     _focusNode.requestFocus();
@@ -74,7 +74,7 @@ class _ConsoleState extends State<Console> {
                   focusNode: _focusNode,
                   onSubmitted: (value) => submit,
                   decoration: const InputDecoration(
-                    hintText: 'Command',
+                    hintText: "Command",
                     fillColor: Colors.white,
                     filled: true,
                     isDense: true, //for padding
@@ -96,7 +96,7 @@ class _ConsoleState extends State<Console> {
                     borderRadius: BorderRadius.zero,
                   ),
                 ),
-                child: const Text('Submit'),
+                child: const Text("Submit"),
                 onPressed: () => submit,
               ),
               ElevatedButton(
@@ -112,10 +112,10 @@ class _ConsoleState extends State<Console> {
                     ),
                   ),
                 ),
-                child: const Text('Clear'),
+                child: const Text("Clear"),
                 onPressed: () {
-                  Stra.log('CONSOLE_CLEAR');
-                  Stra.consoleLog = '';
+                  Stra.log("CONSOLE_CLEAR");
+                  Stra.consoleLog = "";
                   setState(() {});
                 },
               ),

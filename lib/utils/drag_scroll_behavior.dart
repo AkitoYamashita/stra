@@ -1,6 +1,6 @@
-import 'dart:ui';
+import "dart:ui";
 
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 /// ※Desktop/Webアプリケーションで水平方向の(マウスドラッグによる)スクロールを有効にするため、
 /// MaterialScrollBehaviorのオーバーライドし、MaterialAppのscrollBehaviorへ設定する必要有り

@@ -1,5 +1,5 @@
-import 'package:stra/utils/io_interface.dart';
-import 'package:yaml/yaml.dart';
+import "package:stra/utils/io_interface.dart";
+import "package:yaml/yaml.dart";
 
 mixin Yml implements IoInterface {
   /// 引数のyamlパスと
@@ -22,8 +22,8 @@ mixin Yml implements IoInterface {
   /// 値を文字列として取得し返す
   String getStringByYmlText(String ymlTxt, String target) {
     final yamlMap = loadYaml(ymlTxt) as YamlMap;
-    var result = '';
-    final keys = target.split('.');
+    var result = "";
+    final keys = target.split(".");
     var elm = yamlMap;
     for (final key in keys) {
       if (elm.containsKey(key)) {

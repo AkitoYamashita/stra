@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class Txt extends StatelessWidget {
   /// 引数のラベル文字列を元にテキストウィジェットを返す
