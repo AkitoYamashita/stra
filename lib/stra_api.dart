@@ -16,9 +16,9 @@ class StraApi with Yml, Svg, FontAwesome, Io implements IoInterface {
 
   /// 初期化処理
   void initialize() {
-    Stra.debug = !kReleaseMode;
-    Stra.debugTagName = "STRA";
     log("STRA_API_INITIALIZE");
+    Stra.debugTagName = "STRA";
+    Stra.debug = !kReleaseMode;
     Stra.log('Environment:${kReleaseMode ? 'RELEASE' : 'DEBUG'}');
     Stra.log("Platform:${Stra.platformName()}");
   }
